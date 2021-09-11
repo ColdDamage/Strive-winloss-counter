@@ -1,0 +1,16 @@
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\bin\Debug\WinLossCounter.exe.config
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\bin\Debug\WinLossCounter.exe
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\bin\Debug\WinLossCounter.pdb
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.Form1.resources
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.Properties.Resources.resources
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.csproj.GenerateResource.cache
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.csproj.CoreCompileInputs.cache
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.exe
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.pdb
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.Form2.resources
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.Loading.resources
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\bin\Debug\WinLossCounter.exe.manifest
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\bin\Debug\WinLossCounter.application
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.csproj.AssemblyReference.cache
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.exe.manifest
+C:\Users\rikko\source\repos\WinLossCounter\WinLossCounter\obj\Debug\WinLossCounter.application
