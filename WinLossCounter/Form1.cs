@@ -545,7 +545,7 @@ namespace WinLossCounter
                 charpanel1.Location = new System.Drawing.Point(0, 0);
                 charpanel1.Size = new System.Drawing.Size(300, 30);
                 charpanel1.MaximumSize = new System.Drawing.Size(this.MaximumSize.Width, 30);
-                charpanel1.MinimumSize = new System.Drawing.Size(300, 30);
+                charpanel1.MinimumSize = new System.Drawing.Size(panel2.Width, 30);
                 charpanel1.Name = c + "Pan";
                 //charpanel1.Dock = DockStyle.Top;
                 charpanel1.AutoSize = true;
@@ -560,6 +560,7 @@ namespace WinLossCounter
                 character.Dock = DockStyle.Left;
                 character.TextAlign = ContentAlignment.MiddleLeft;
                 character.Location = new System.Drawing.Point(0, 0);
+                character.AutoSize = true;
                 character.Cursor = Cursors.Hand;
                 character.Click += new EventHandler(this.label_Click);
 

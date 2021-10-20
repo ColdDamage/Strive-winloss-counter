@@ -32,10 +32,12 @@ namespace WinLossCounter
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.customLabel6 = new WinLossCounter.CustomLabel();
+            this.customLabel5 = new WinLossCounter.CustomLabel();
             this.LossesCount = new WinLossCounter.CustomLabel();
             this.WinsCount = new WinLossCounter.CustomLabel();
             this.WinRate = new WinLossCounter.CustomLabel();
-            this.customLabel5 = new WinLossCounter.CustomLabel();
             this.customLabel4 = new WinLossCounter.CustomLabel();
             this.customLabel3 = new WinLossCounter.CustomLabel();
             this.customLabel2 = new WinLossCounter.CustomLabel();
@@ -61,13 +63,11 @@ namespace WinLossCounter
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.customLabel6 = new WinLossCounter.CustomLabel();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.sPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.sPanel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,6 +87,40 @@ namespace WinLossCounter
             this.panel1.Size = new System.Drawing.Size(300, 183);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.customLabel6);
+            this.panel3.Controls.Add(this.customLabel5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 147);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(300, 36);
+            this.panel3.TabIndex = 20;
+            // 
+            // customLabel6
+            // 
+            this.customLabel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.customLabel6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customLabel6.Location = new System.Drawing.Point(0, 0);
+            this.customLabel6.Name = "customLabel6";
+            this.customLabel6.Size = new System.Drawing.Size(300, 19);
+            this.customLabel6.TabIndex = 17;
+            this.customLabel6.Text = "Show controls: F2";
+            this.customLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.customLabel6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // customLabel5
+            // 
+            this.customLabel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.customLabel5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customLabel5.Location = new System.Drawing.Point(0, 17);
+            this.customLabel5.Name = "customLabel5";
+            this.customLabel5.Size = new System.Drawing.Size(300, 19);
+            this.customLabel5.TabIndex = 16;
+            this.customLabel5.Text = "Character/Color select: F3";
+            this.customLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.customLabel5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             // 
             // LossesCount
             // 
@@ -123,18 +157,6 @@ namespace WinLossCounter
             this.WinRate.Text = "0%";
             this.WinRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.WinRate.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
-            // customLabel5
-            // 
-            this.customLabel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.customLabel5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customLabel5.Location = new System.Drawing.Point(0, 17);
-            this.customLabel5.Name = "customLabel5";
-            this.customLabel5.Size = new System.Drawing.Size(300, 19);
-            this.customLabel5.TabIndex = 16;
-            this.customLabel5.Text = "Character/Color select: F3";
-            this.customLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.customLabel5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             // 
             // customLabel4
             // 
@@ -425,28 +447,6 @@ namespace WinLossCounter
             this.label8.TabIndex = 15;
             this.label8.Text = "Open statistics: F1";
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.customLabel6);
-            this.panel3.Controls.Add(this.customLabel5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 147);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 36);
-            this.panel3.TabIndex = 20;
-            // 
-            // customLabel6
-            // 
-            this.customLabel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.customLabel6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customLabel6.Location = new System.Drawing.Point(0, 0);
-            this.customLabel6.Name = "customLabel6";
-            this.customLabel6.Size = new System.Drawing.Size(300, 19);
-            this.customLabel6.TabIndex = 17;
-            this.customLabel6.Text = "Show controls: F2";
-            this.customLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.customLabel6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,18 +463,17 @@ namespace WinLossCounter
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinLossCounter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.sPanel2.ResumeLayout(false);
             this.sPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.sPanel1.ResumeLayout(false);
             this.sPanel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
