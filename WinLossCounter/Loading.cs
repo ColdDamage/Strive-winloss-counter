@@ -20,6 +20,7 @@ namespace WinLossCounter
         private async void Loading_Load(object sender, EventArgs e)
         {
             Hide();
+            this.ForeColor = Color.FromName(System.IO.File.ReadAllText("color.txt"));
             this.TransparencyKey = Color.Black;
             Show();
             this.Size = Screen.FromControl(this).Bounds.Size;

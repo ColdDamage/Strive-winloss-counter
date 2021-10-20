@@ -1,4 +1,6 @@
-Show controls in overlay: F2
+Show/Hide controls in overlay: F2
+
+Show/Hide character/color select: F3
 
 Open character statistics: F1
 

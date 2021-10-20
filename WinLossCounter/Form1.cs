@@ -28,6 +28,7 @@ namespace WinLossCounter
         const int CharMinus = 9;
         const int ChangeForm = 10;
         const int ShowControls = 11;
+        const int ShowCharSelect = 12;
         double Wins = 0.00;
         double Losses = 0.00;
         public double Ratio = 0.00;
@@ -79,6 +80,7 @@ namespace WinLossCounter
             RegisterHotKey(this.Handle, RevertWin, 2, (int)Keys.Add);
             RegisterHotKey(this.Handle, ChangeForm, 0, (int)Keys.F1);
             RegisterHotKey(this.Handle, ShowControls, 0, (int)Keys.F2);
+            RegisterHotKey(this.Handle, ShowCharSelect, 0, (int)Keys.F3);
             this.TopMost = true;
         }
 
@@ -162,7 +164,16 @@ namespace WinLossCounter
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == ShowControls)
             {
                 //Do something here, the key pressed matches our listener
+                sPanel1.Visible = !sPanel1.Visible;
+                panel2.Visible = false;
+                sPanel2.Visible = false;
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == ShowCharSelect)
+            {
+                //Do something here, the key pressed matches our listener
+                sPanel1.Visible = false;
                 panel2.Visible = !panel2.Visible;
+                sPanel2.Visible = !sPanel2.Visible;
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == ChangeForm)
             {
@@ -515,6 +526,45 @@ namespace WinLossCounter
         {
             Hide();
             this.TransparencyKey = Color.Black;
+            this.ForeColor = Color.FromName(System.IO.File.ReadAllText("color.txt"));
+            int i = 0;
+            TableLayoutPanel list = new TableLayoutPanel();
+            list.RowCount = charList.Count();
+            list.Dock = DockStyle.Top;
+            list.Size = new System.Drawing.Size(panel2.Width, panel2.Height - 10);
+            list.Location = new System.Drawing.Point(0, 0);
+            list.MaximumSize = new System.Drawing.Size(this.MaximumSize.Width, SystemInformation.VirtualScreen.Height);
+            list.MinimumSize = new System.Drawing.Size(panel2.Width, 30);
+            list.AutoSize = true;
+
+            panel2.Controls.Add(list);
+
+            foreach (string c in charList)
+            {
+                Panel charpanel1 = new Panel();
+                charpanel1.Location = new System.Drawing.Point(0, 0);
+                charpanel1.Size = new System.Drawing.Size(300, 30);
+                charpanel1.MaximumSize = new System.Drawing.Size(this.MaximumSize.Width, 30);
+                charpanel1.MinimumSize = new System.Drawing.Size(300, 30);
+                charpanel1.Name = c + "Pan";
+                //charpanel1.Dock = DockStyle.Top;
+                charpanel1.AutoSize = true;
+                charpanel1.Margin = new Padding(0, 0, 0, 0);
+
+                list.Controls.Add(charpanel1, 0, i);
+                i++;
+
+                Label character = new Label();
+                character.Name = c + "Cont";
+                character.Text = c;
+                character.Dock = DockStyle.Left;
+                character.TextAlign = ContentAlignment.MiddleLeft;
+                character.Location = new System.Drawing.Point(0, 0);
+                character.Cursor = Cursors.Hand;
+                character.Click += new EventHandler(this.label_Click);
+
+                charpanel1.Controls.Add(character);
+            }
             Show();
             string lastChar = System.IO.File.ReadAllText("lastchar.txt");
             chrLabel.Text = lastChar;
@@ -522,7 +572,8 @@ namespace WinLossCounter
             screenwidth = Screen.FromControl(this).Bounds.Width;
             screenheight = Screen.FromControl(this).Bounds.Height;
             panel1.Location = new Point(Convert.ToInt32(screenwidth / 2 - 150), Convert.ToInt32(screenheight - 200));
-            panel2.Location = new Point(Convert.ToInt32(screenwidth / 2 - 165), Convert.ToInt32(screenheight / 2));
+            sPanel1.Location = new Point(Convert.ToInt32(screenwidth / 2 - sPanel1.Width / 2 + 20), Convert.ToInt32(screenheight / 2));
+            sPanel2.Location = new Point(Convert.ToInt32(screenwidth / 2 - sPanel2.Width / 2 + 20), Convert.ToInt32(screenheight / 2 - sPanel2.Height / 2));
             winpoints = new Point[]{ new Point { X = Convert.ToInt32(screenwidth * 0.27695), Y = Convert.ToInt32(screenheight * 0.24444) }, new Point { X = Convert.ToInt32(screenwidth * 0.28828), Y = Convert.ToInt32(screenheight * 0.24653) }, new Point { X = Convert.ToInt32(screenwidth * 0.31211), Y = Convert.ToInt32(screenheight * 0.24514) }, new Point { X = Convert.ToInt32(screenwidth * 0.33320), Y = Convert.ToInt32(screenheight * 0.24583) } };
             losspoints = new Point[] { new Point { X = Convert.ToInt32(screenwidth * 0.27734), Y = Convert.ToInt32(screenheight * 0.24444) }, new Point { X = Convert.ToInt32(screenwidth * 0.29648), Y = Convert.ToInt32(screenheight * 0.26319) }, new Point { X = Convert.ToInt32(screenwidth * 0.32226), Y = Convert.ToInt32(screenheight * 0.26319) }, new Point { X = Convert.ToInt32(screenwidth * 0.33867), Y = Convert.ToInt32(screenheight * 0.28333) } };
             table = ReadXML();
@@ -564,6 +615,40 @@ namespace WinLossCounter
             LoseColor = Color.FromArgb(255, 0, 108, 218);
             timer1.Interval = 500;
             timer1.Start();
+        }
+
+        void label_Click(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+
+            chrLabel.Text = lbl.Text;
+            File.WriteAllText("lastchar.txt", chrLabel.Text);
+            table = ReadXML();
+            DataColumnCollection columns = table.Columns;
+            if (columns.Count < 1)
+            {
+                //create the table with the appropriate column names
+                DataColumn column = new DataColumn("year", typeof(System.Int32));
+                table.Columns.Add(column);
+
+                column = new DataColumn("month", typeof(System.String));
+                table.Columns.Add(column);
+
+                column = new DataColumn("character", typeof(System.String));
+                table.Columns.Add(column);
+
+                column = new DataColumn("wins", typeof(System.Int32));
+                table.Columns.Add(column);
+
+                column = new DataColumn("losses", typeof(System.Int32));
+                table.Columns.Add(column);
+
+                updateTable(chrLabel.Text);
+            }
+            updateStats(label5.Text);
+            Wins = Convert.ToDouble(WinsCount.Text);
+            Losses = Convert.ToDouble(LossesCount.Text);
+            Ratio = Math.Round((Wins / (Wins + Losses)) * 100, 1);
         }
 
         protected override void OnLoad(EventArgs e)
@@ -676,6 +761,42 @@ namespace WinLossCounter
             {
                 triggered = false;
             }
+        }
+
+        private void colorRed_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.ForeColor = Color.Maroon;
+            File.WriteAllText("color.txt", this.ForeColor.Name);
+        }
+
+        private void colorBlue_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.ForeColor = Color.SteelBlue;
+            File.WriteAllText("color.txt", this.ForeColor.Name);
+        }
+
+        private void colorGreen_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.ForeColor = Color.Green;
+            File.WriteAllText("color.txt", this.ForeColor.Name);
+        }
+
+        private void colorViolet_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.ForeColor = Color.MediumVioletRed;
+            File.WriteAllText("color.txt", this.ForeColor.Name);
+        }
+
+        private void colorOrange_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.ForeColor = Color.OrangeRed;
+            File.WriteAllText("color.txt", this.ForeColor.Name);
+        }
+
+        private void colorBlack_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.ForeColor = Color.DimGray;
+            File.WriteAllText("color.txt", this.ForeColor.Name);
         }
     }
 }
