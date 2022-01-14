@@ -29,4 +29,3 @@ D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\Win
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.application
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.exe
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.pdb
-D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.csproj.AssemblyReference.cache

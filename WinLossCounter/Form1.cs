@@ -366,6 +366,7 @@ namespace WinLossCounter
             int year = now.Year;
             string character = chrLabel.Text;
             bool found = false;
+            bool thismonth = false;
             double datawins = 0.00;
             double datalosses = 0.00;
             double dataratio = 0.00;
@@ -390,6 +391,7 @@ namespace WinLossCounter
                         {
                             Wins = Convert.ToInt32(table.Compute("SUM(wins)", "year = '" + yr + "'" + " AND month = '" + mo + "'" + " AND character = '" + ch + "'"));
                             Losses = Convert.ToInt32(table.Compute("SUM(losses)", "year = '" + yr + "'" + " AND month = '" + mo + "'" + " AND character = '" + ch + "'"));
+                            thismonth = true;
                         }
                     }
 
@@ -418,6 +420,12 @@ namespace WinLossCounter
                 WinsCount.Text = "0";
                 LossesCount.Text = "0";
                 WinRate.Text = "0%";
+                Wins = 0.00;
+                Losses = 0.00;
+                Ratio = 0.00;
+            }
+            if (thismonth == false)
+            {
                 Wins = 0.00;
                 Losses = 0.00;
                 Ratio = 0.00;
