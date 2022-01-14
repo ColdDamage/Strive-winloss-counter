@@ -12,8 +12,6 @@ Remove loss manually: CTRL + numpad-
 
 Change character: Arrow up/down
 
-Change timeline: Arrow left/right
-
 Exit: CTRL + Enter
 
 When new characters are added, just add them to the end of the characters.txt file.
