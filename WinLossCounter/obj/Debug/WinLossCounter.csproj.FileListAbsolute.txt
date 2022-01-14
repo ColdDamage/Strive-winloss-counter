@@ -19,7 +19,6 @@ D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\bin\Debug\Win
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\bin\Debug\WinLossCounter.application
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\bin\Debug\WinLossCounter.exe
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\bin\Debug\WinLossCounter.pdb
-D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.csproj.AssemblyReference.cache
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.Form1.resources
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.Form2.resources
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.Loading.resources
@@ -30,3 +29,4 @@ D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\Win
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.application
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.exe
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.pdb
+D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.csproj.AssemblyReference.cache

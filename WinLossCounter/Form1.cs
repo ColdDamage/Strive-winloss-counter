@@ -47,7 +47,6 @@ namespace WinLossCounter
         Point[] winpoints;
         Point[] losspoints;
 
-
         // DLL libraries used to manage hotkeys
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
@@ -71,8 +70,8 @@ namespace WinLossCounter
             //Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8
             RegisterHotKey(this.Handle, Win, 0, (int)Keys.Add);
             RegisterHotKey(this.Handle, Loss, 0, (int)Keys.Subtract);
-            RegisterHotKey(this.Handle, ModePlus, 0, (int)Keys.Right);
-            RegisterHotKey(this.Handle, ModeMinus, 0, (int)Keys.Left);
+            //RegisterHotKey(this.Handle, ModePlus, 0, (int)Keys.Right);
+            //RegisterHotKey(this.Handle, ModeMinus, 0, (int)Keys.Left);
             RegisterHotKey(this.Handle, CharPlus, 0, (int)Keys.Up);
             RegisterHotKey(this.Handle, CharMinus, 0, (int)Keys.Down);
             RegisterHotKey(this.Handle, Exit, 2, (int)Keys.Enter);
@@ -91,14 +90,14 @@ namespace WinLossCounter
                 //Do something here, the key pressed matches our listener
                 Wins++;
                 updateTable(chrLabel.Text);
-                updateStats(label5.Text);
+                updateStats();
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == Loss)
             {
                 //Do something here, the key pressed matches our listener
                 Losses++;
                 updateTable(chrLabel.Text);
-                updateStats(label5.Text);
+                updateStats();
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == RevertWin)
             {
@@ -115,7 +114,7 @@ namespace WinLossCounter
                 //WinRate.Text = Ratio.ToString() + "%";
                 //WinsCount.Text = Wins.ToString();
                 updateTable(chrLabel.Text);
-                updateStats(label5.Text);
+                updateStats();
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == RevertLoss)
             {
@@ -132,18 +131,18 @@ namespace WinLossCounter
                 //WinRate.Text = Ratio.ToString() + "%";
                 //LossesCount.Text = Losses.ToString();
                 updateTable(chrLabel.Text);
-                updateStats(label5.Text);
+                updateStats();
             }
-            if (m.Msg == 0x0312 && m.WParam.ToInt32() == ModeMinus)
-            {
-                //Do something here, the key pressed matches our listener
-                ModeSwitch("minus");
-            }
-            if (m.Msg == 0x0312 && m.WParam.ToInt32() == ModePlus)
-            {
-                //Do something here, the key pressed matches our listener
-                ModeSwitch("plus");
-            }
+            //if (m.Msg == 0x0312 && m.WParam.ToInt32() == ModeMinus)
+            //{
+            //    //Do something here, the key pressed matches our listener
+            //    ModeSwitch("minus");
+            //}
+            //if (m.Msg == 0x0312 && m.WParam.ToInt32() == ModePlus)
+            //{
+            //    //Do something here, the key pressed matches our listener
+            //    ModeSwitch("plus");
+            //}
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == CharMinus)
             {
                 //Do something here, the key pressed matches our listener
@@ -196,42 +195,42 @@ namespace WinLossCounter
             });
         }
 
-        public void ModeSwitch(string modeChange)
-        {
-            switch(modeChange)
-            {
-                case "plus":
-                    switch(label5.Text)
-                    {
-                        case "current month":
-                            label5.Text = "current year";
-                            break;
-                        case "current year":
-                            label5.Text = "all time";
-                            break;
-                        case "all time":
-                            label5.Text = "current month";
-                            break;
-                    }
-                    break;
+        //public void ModeSwitch(string modeChange)
+        //{
+        //    switch(modeChange)
+        //    {
+        //        case "plus":
+        //            switch(label5.Text)
+        //            {
+        //                case "current month":
+        //                    "all time" = "current year";
+        //                    break;
+        //                case "current year":
+        //                    "all time" = "all time";
+        //                    break;
+        //                case "all time":
+        //                    "all time" = "current month";
+        //                    break;
+        //            }
+        //            break;
 
-                case "minus":
-                    switch (label5.Text)
-                    {
-                        case "current month":
-                            label5.Text = "all time";
-                            break;
-                        case "current year":
-                            label5.Text = "current month";
-                            break;
-                        case "all time":
-                            label5.Text = "current year";
-                            break;
-                    }
-                    break;
-            }
-            updateStats(label5.Text);
-        }
+        //        case "minus":
+        //            switch (label5.Text)
+        //            {
+        //                case "current month":
+        //                    "all time" = "all time";
+        //                    break;
+        //                case "current year":
+        //                    "all time" = "current month";
+        //                    break;
+        //                case "all time":
+        //                    "all time" = "current year";
+        //                    break;
+        //            }
+        //            break;
+        //    }
+        //    updateStats(label5.Text);
+        //}
 
         public void CharSwitch(string charchange)
         {
@@ -292,10 +291,7 @@ namespace WinLossCounter
 
                 updateTable(chrLabel.Text);
             }
-            updateStats(label5.Text);
-            Wins = Convert.ToDouble(WinsCount.Text);
-            Losses = Convert.ToDouble(LossesCount.Text);
-            Ratio = Math.Round((Wins / (Wins + Losses)) * 100, 1);
+            updateStats();
         }
 
         public DataTable ReadXML()
@@ -359,11 +355,10 @@ namespace WinLossCounter
             {
                 AddRows(character);
             }
-            updateStats(label5.Text);
             table.WriteXml("WinLossData.xml");
         }
 
-        public void updateStats(string mode)
+        public void updateStats()
         {
             System.DateTime now = new System.DateTime();
             now = DateTime.Today;
@@ -371,103 +366,52 @@ namespace WinLossCounter
             int year = now.Year;
             string character = chrLabel.Text;
             bool found = false;
-            switch (mode)
+            double datawins = 0.00;
+            double datalosses = 0.00;
+            double dataratio = 0.00;
+            foreach (DataRow dr in table.Rows) // search whole table
             {
-                case "current month":
+                var yr = dr["year"].ToString();
+                var mo = dr["month"].ToString();
+                var ch = dr["character"].ToString();
+                if (ch == character) // if id==2
+                {
+                    found = true;
+
+                    datawins = Convert.ToInt32(table.Compute("SUM(wins)", "character = '" + ch + "'"));
+                    datalosses = Convert.ToInt32(table.Compute("SUM(losses)", "character = '" + ch + "'"));
+
+                    WinsCount.Text = datawins.ToString();
+                    LossesCount.Text = datalosses.ToString();
+
+                    if (yr == year.ToString())
                     {
-                        double datawins = 0.00;
-                        double datalosses = 0.00;
-                        foreach (DataRow dr in table.Rows) // search whole table
+                        if (mo == month.ToString())
                         {
-                            var yr = dr["year"].ToString();
-                            var mo = dr["month"].ToString();
-                            var ch = dr["character"].ToString();
-                            if (yr == year.ToString() && mo == month.ToString() && ch == character) // if id==2
-                            {
-                                found = true;
-
-                                datawins = Convert.ToInt32(table.Compute("SUM(wins)", "year = '" + yr + "'" + " AND month = '" + mo + "'" + " AND character = '" + ch + "'"));
-                                datalosses = Convert.ToInt32(table.Compute("SUM(losses)", "year = '" + yr + "'" + " AND month = '" + mo + "'" + " AND character = '" + ch + "'"));
-
-                                WinsCount.Text = datawins.ToString();
-                                LossesCount.Text = datalosses.ToString();
-                                if (datawins > 0)
-                                {
-                                    Ratio = Math.Round((datawins / (datawins + datalosses)) * 100, 1);
-                                }
-                                else
-                                {
-                                    Ratio = 0.00;
-                                }
-                                WinRate.Text = Ratio.ToString() + "%";
-                            }
+                            Wins = Convert.ToInt32(table.Compute("SUM(wins)", "year = '" + yr + "'" + " AND month = '" + mo + "'" + " AND character = '" + ch + "'"));
+                            Losses = Convert.ToInt32(table.Compute("SUM(losses)", "year = '" + yr + "'" + " AND month = '" + mo + "'" + " AND character = '" + ch + "'"));
                         }
-                        break;
                     }
 
-                case "current year":
+                    if (Wins > 0)
                     {
-                        double datawins = 0.00;
-                        double datalosses = 0.00;
-                        foreach (DataRow dr in table.Rows) // search whole table
-                        {
-                            var yr = dr["year"].ToString();
-                            var mo = dr["month"].ToString();
-                            var ch = dr["character"].ToString();
-                            if (yr == year.ToString() && ch == character) // if id==2
-                            {
-                                found = true;
-
-                                datawins = Convert.ToInt32(table.Compute("SUM(wins)", "year = '" + yr + "'" + " AND character = '" + ch + "'"));
-                                datalosses = Convert.ToInt32(table.Compute("SUM(losses)", "year = '" + yr + "'" + " AND character = '" + ch + "'"));
-
-                                WinsCount.Text = datawins.ToString();
-                                LossesCount.Text = datalosses.ToString();
-                                if (datawins > 0)
-                                {
-                                    Ratio = Math.Round((datawins / (datawins + datalosses)) * 100, 1);
-                                }
-                                else
-                                {
-                                    Ratio = 0.00;
-                                }
-                                WinRate.Text = Ratio.ToString() + "%";
-                            }
-                        }
-                        break;
+                        Ratio = Math.Round((Wins / (Wins + Losses)) * 100, 1);
+                    }
+                    else
+                    {
+                        Ratio = 0.00;
                     }
 
-                case "all time":
+                    if (datawins > 0)
                     {
-                        double datawins = 0.00;
-                        double datalosses = 0.00;
-                        foreach (DataRow dr in table.Rows) // search whole table
-                        {
-                            var yr = dr["year"].ToString();
-                            var mo = dr["month"].ToString();
-                            var ch = dr["character"].ToString();
-                            if (ch == character) // if id==2
-                            {
-                                found = true;
-
-                                datawins = Convert.ToInt32(table.Compute("SUM(wins)", "character = '" + ch + "'"));
-                                datalosses = Convert.ToInt32(table.Compute("SUM(losses)", "character = '" + ch + "'"));
-
-                                WinsCount.Text = datawins.ToString();
-                                LossesCount.Text = datalosses.ToString();
-                                if (datawins > 0)
-                                {
-                                    Ratio = Math.Round((datawins / (datawins + datalosses)) * 100, 1);
-                                }
-                                else
-                                {
-                                    Ratio = 0.00;
-                                }
-                                WinRate.Text = Ratio.ToString() + "%";
-                            }
-                        }
-                        break;
+                        dataratio = Math.Round((datawins / (datawins + datalosses)) * 100, 1);
                     }
+                    else
+                    {
+                        dataratio = 0.00;
+                    }
+                    WinRate.Text = dataratio.ToString() + "%";
+                }
             }
             if (found == false)
             {
@@ -497,11 +441,11 @@ namespace WinLossCounter
             table.AcceptChanges();
         }
 
-        public void CustomLabel()
-        {
-            OutlineForeColor = Color.FromName("ControlText");
-            OutlineWidth = 2;
-        }
+        //public void CustomLabel()
+        //{
+        //    OutlineForeColor = Color.FromName("ControlText");
+        //    OutlineWidth = 2;
+        //}
         public Color OutlineForeColor { get; set; }
         public float OutlineWidth { get; set; }
         protected override void OnPaint(PaintEventArgs e)
@@ -599,18 +543,7 @@ namespace WinLossCounter
 
                 updateTable(chrLabel.Text);
             }
-            updateStats(label5.Text);
-            Wins = Convert.ToDouble(WinsCount.Text);
-            Losses = Convert.ToDouble(LossesCount.Text);
-            Ratio = Math.Round((Wins / (Wins + Losses)) * 100, 1);
-            if(Ratio.ToString() != "NaN")
-            {
-                WinRate.Text = Ratio.ToString() + "%";
-            }
-            else
-            {
-                WinRate.Text = "0%";
-            }
+            updateStats();
 
             WinColor = Color.FromArgb(255, 250, 0, 0);
             LoseColor = Color.FromArgb(255, 0, 108, 218);
@@ -646,10 +579,7 @@ namespace WinLossCounter
 
                 updateTable(chrLabel.Text);
             }
-            updateStats(label5.Text);
-            Wins = Convert.ToDouble(WinsCount.Text);
-            Losses = Convert.ToDouble(LossesCount.Text);
-            Ratio = Math.Round((Wins / (Wins + Losses)) * 100, 1);
+            updateStats();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -748,13 +678,13 @@ namespace WinLossCounter
                     {
                         Wins++;
                         updateTable(chrLabel.Text);
-                        updateStats(label5.Text);
+                        updateStats();
                     }
                     if (result == "Loss")
                     {
                         Losses++;
                         updateTable(chrLabel.Text);
-                        updateStats(label5.Text);
+                        updateStats();
                     }
                 }
             }

@@ -41,8 +41,6 @@ namespace WinLossCounter
             this.customLabel4 = new WinLossCounter.CustomLabel();
             this.customLabel3 = new WinLossCounter.CustomLabel();
             this.customLabel2 = new WinLossCounter.CustomLabel();
-            this.label5 = new WinLossCounter.CustomLabel();
-            this.customLabel1 = new WinLossCounter.CustomLabel();
             this.chrLabel = new WinLossCounter.CustomLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sPanel2 = new WinLossCounter.SPanel();
@@ -61,7 +59,6 @@ namespace WinLossCounter
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -79,12 +76,10 @@ namespace WinLossCounter
             this.panel1.Controls.Add(this.customLabel4);
             this.panel1.Controls.Add(this.customLabel3);
             this.panel1.Controls.Add(this.customLabel2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.customLabel1);
             this.panel1.Controls.Add(this.chrLabel);
-            this.panel1.Location = new System.Drawing.Point(333, 671);
+            this.panel1.Location = new System.Drawing.Point(333, 692);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 183);
+            this.panel1.Size = new System.Drawing.Size(300, 162);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -93,7 +88,7 @@ namespace WinLossCounter
             this.panel3.Controls.Add(this.customLabel6);
             this.panel3.Controls.Add(this.customLabel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 147);
+            this.panel3.Location = new System.Drawing.Point(0, 126);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(300, 36);
             this.panel3.TabIndex = 20;
@@ -126,7 +121,7 @@ namespace WinLossCounter
             // 
             this.LossesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LossesCount.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LossesCount.Location = new System.Drawing.Point(177, 110);
+            this.LossesCount.Location = new System.Drawing.Point(177, 90);
             this.LossesCount.Name = "LossesCount";
             this.LossesCount.Size = new System.Drawing.Size(103, 24);
             this.LossesCount.TabIndex = 19;
@@ -138,7 +133,7 @@ namespace WinLossCounter
             // 
             this.WinsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.WinsCount.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WinsCount.Location = new System.Drawing.Point(158, 84);
+            this.WinsCount.Location = new System.Drawing.Point(158, 66);
             this.WinsCount.Name = "WinsCount";
             this.WinsCount.Size = new System.Drawing.Size(122, 24);
             this.WinsCount.TabIndex = 18;
@@ -150,7 +145,7 @@ namespace WinLossCounter
             // 
             this.WinRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.WinRate.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WinRate.Location = new System.Drawing.Point(186, 57);
+            this.WinRate.Location = new System.Drawing.Point(186, 42);
             this.WinRate.Name = "WinRate";
             this.WinRate.Size = new System.Drawing.Size(94, 24);
             this.WinRate.TabIndex = 17;
@@ -162,7 +157,7 @@ namespace WinLossCounter
             // 
             this.customLabel4.AutoSize = true;
             this.customLabel4.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customLabel4.Location = new System.Drawing.Point(29, 110);
+            this.customLabel4.Location = new System.Drawing.Point(29, 90);
             this.customLabel4.Name = "customLabel4";
             this.customLabel4.Size = new System.Drawing.Size(94, 24);
             this.customLabel4.TabIndex = 15;
@@ -174,7 +169,7 @@ namespace WinLossCounter
             // 
             this.customLabel3.AutoSize = true;
             this.customLabel3.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customLabel3.Location = new System.Drawing.Point(29, 84);
+            this.customLabel3.Location = new System.Drawing.Point(29, 66);
             this.customLabel3.Name = "customLabel3";
             this.customLabel3.Size = new System.Drawing.Size(70, 24);
             this.customLabel3.TabIndex = 14;
@@ -186,36 +181,13 @@ namespace WinLossCounter
             // 
             this.customLabel2.AutoSize = true;
             this.customLabel2.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customLabel2.Location = new System.Drawing.Point(29, 57);
+            this.customLabel2.Location = new System.Drawing.Point(29, 42);
             this.customLabel2.Name = "customLabel2";
             this.customLabel2.Size = new System.Drawing.Size(106, 24);
             this.customLabel2.TabIndex = 13;
             this.customLabel2.Text = "Winrate:";
             this.customLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.customLabel2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(102, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 24);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "current month";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
-            // customLabel1
-            // 
-            this.customLabel1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customLabel1.Location = new System.Drawing.Point(48, 33);
-            this.customLabel1.Name = "customLabel1";
-            this.customLabel1.Size = new System.Drawing.Size(87, 24);
-            this.customLabel1.TabIndex = 11;
-            this.customLabel1.Text = "From";
-            this.customLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.customLabel1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             // 
             // chrLabel
             // 
@@ -331,11 +303,10 @@ namespace WinLossCounter
             this.sPanel1.Controls.Add(this.label12);
             this.sPanel1.Controls.Add(this.label11);
             this.sPanel1.Controls.Add(this.label10);
-            this.sPanel1.Controls.Add(this.label9);
             this.sPanel1.Controls.Add(this.label8);
             this.sPanel1.Location = new System.Drawing.Point(300, 387);
             this.sPanel1.Name = "sPanel1";
-            this.sPanel1.Size = new System.Drawing.Size(378, 299);
+            this.sPanel1.Size = new System.Drawing.Size(378, 273);
             this.sPanel1.TabIndex = 12;
             this.sPanel1.Visible = false;
             // 
@@ -357,7 +328,7 @@ namespace WinLossCounter
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label15.Location = new System.Drawing.Point(16, 212);
+            this.label15.Location = new System.Drawing.Point(16, 188);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(177, 24);
             this.label15.TabIndex = 22;
@@ -369,7 +340,7 @@ namespace WinLossCounter
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label14.Location = new System.Drawing.Point(16, 188);
+            this.label14.Location = new System.Drawing.Point(16, 164);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(288, 24);
             this.label14.TabIndex = 21;
@@ -381,7 +352,7 @@ namespace WinLossCounter
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label13.Location = new System.Drawing.Point(16, 164);
+            this.label13.Location = new System.Drawing.Point(16, 140);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(292, 24);
             this.label13.TabIndex = 20;
@@ -393,7 +364,7 @@ namespace WinLossCounter
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label12.Location = new System.Drawing.Point(16, 140);
+            this.label12.Location = new System.Drawing.Point(16, 116);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(263, 24);
             this.label12.TabIndex = 19;
@@ -405,7 +376,7 @@ namespace WinLossCounter
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label11.Location = new System.Drawing.Point(16, 116);
+            this.label11.Location = new System.Drawing.Point(16, 92);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(267, 24);
             this.label11.TabIndex = 18;
@@ -417,23 +388,11 @@ namespace WinLossCounter
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label10.Location = new System.Drawing.Point(16, 92);
+            this.label10.Location = new System.Drawing.Point(16, 68);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(325, 24);
             this.label10.TabIndex = 17;
             this.label10.Text = "Change character: Arrows up/down";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label9.Location = new System.Drawing.Point(16, 68);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(319, 24);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Change timeline: Arrows left/right";
             // 
             // label8
             // 
@@ -483,8 +442,6 @@ namespace WinLossCounter
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
         private CustomLabel chrLabel;
-        private CustomLabel label5;
-        private CustomLabel customLabel1;
         private CustomLabel LossesCount;
         private CustomLabel WinsCount;
         private CustomLabel WinRate;
@@ -500,7 +457,6 @@ namespace WinLossCounter
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
         private SPanel sPanel2;
