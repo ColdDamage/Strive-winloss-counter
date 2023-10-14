@@ -29,3 +29,13 @@ D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\Win
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.application
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.exe
 D:\Documents\Koodaus\Strive-winloss-counter-project\WinLossCounter\obj\Debug\WinLossCounter.pdb
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.csproj.AssemblyReference.cache
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.csproj.SuggestedBindingRedirects.cache
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.Form1.resources
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.Form2.resources
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.Loading.resources
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.Properties.Resources.resources
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.csproj.GenerateResource.cache
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.exe
+D:\Documents\GitHub\Strive-winloss-counter\WinLossCounter\obj\Debug\WinLossCounter.pdb
